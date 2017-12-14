@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Person {
+public class Person implements Greeter {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Person person = new Person();
@@ -61,6 +61,9 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public String sayHello(){
+        return "Hello from " + firstName + lastName;
+    }
 
 
 
