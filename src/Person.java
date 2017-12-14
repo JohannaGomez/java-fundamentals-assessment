@@ -11,11 +11,14 @@ public class Person {
         System.out.println("Enter last name: ");
         String lastName = person.getLastName();
 
+        System.out.println("your name is: " + firstName + ' ' + lastName);
+
     }
 
 
     //    This class should have two protected string properties: firstName and lastName.
     protected String firstName, lastName;
+
     Scanner scan = new Scanner(System.in);
 
     //    Add a constructor method that takes in two strings that will be used to set the firstName and lastName properties.
@@ -25,12 +28,14 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String lastName) {
-        if (firstName.equalsIgnoreCase(null) || lastName.equalsIgnoreCase(null)) {
-            throw new IllegalArgumentException("Strings are not valid!");
+    public Person (String firstName, String lastName) {
+        try {
+            this.firstName = firstName;
+            this.lastName = lastName;
         }
-        this.firstName = firstName;
-        this.lastName = lastName;
+        catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -55,6 +60,9 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+
+
 
 
 }
