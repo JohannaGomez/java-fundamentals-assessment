@@ -64,7 +64,7 @@ public class Assessment {
 //    The method should both accept and return an ArrayList of User objects.
 //    The returned list should have the same User objects in it, but each user's firstName and lastName properties should be properly capitalized. (i.e. the first letter of each property should be upper case)
 
-    public static capitalizeRecords(String[] arrayList ) {
-        return;
-    }
+//    public static capitalizeRecords(String[] arrayList ) {
+//        return;
+//    }
 }
