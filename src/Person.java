@@ -1,71 +1,46 @@
-import java.util.Scanner;
-
 public class Person implements Greeter {
+    //    Create a class named Person
+//    This class should have two protected string properties: firstName and lastName.
+//    Add a constructor method that takes in two strings that will be used to set the firstName and
+//    lastName properties.
+//    If the firstName or lastName (or both) argument is null, the constructor should throw an
+//    IllegalArgumentException with a descriptive error message.
+//    Write a getter and setter for both the firstName and lastName properties.
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        Person person = new Person();
-
-        System.out.println("Enter first name: ");
-        String firstName = person.getFirstName();
-
-        System.out.println("Enter last name: ");
-        String lastName = person.getLastName();
-
-        System.out.println("your name is: " + firstName + ' ' + lastName);
-
+        Person person = new Person("juan","");
     }
 
+    private String firstName;
+    private String lastName;
 
-    //    This class should have two protected string properties: firstName and lastName.
-    protected String firstName, lastName;
-
-    Scanner scan = new Scanner(System.in);
-
-    //    Add a constructor method that takes in two strings that will be used to set the firstName and lastName properties.
-    //    If the firstName or lastName (or both) argument is null, the constructor should throw an IllegalArgumentException
-    //   with a descriptive error message.
-
-    public Person() {
-    }
-
-    public Person (String firstName, String lastName) {
-        try {
+    public Person(String firstName, String lastName) throws IllegalArgumentException {
+        if (firstName == null || lastName == null) {
+            throw new IllegalArgumentException("Invalid entry for first name or last name");
+        } else {
             this.firstName = firstName;
             this.lastName = lastName;
         }
-        catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
     }
-
-
-
-
-    //    Write a getter and setter for both the firstName and lastName properties.
 
     public String getFirstName() {
-        String firstName = scan.next();
         return firstName;
-    }
-
-    public String getLastName() {
-        String lastName = scan.next();
-        return lastName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String sayHello(){
-        return "Hello from " + firstName + lastName;
+    @Override
+    public String sayHello() {
+        String message = "Hello from " + this.firstName + " " + this.lastName;
+        return message;
     }
-
-
-
-
 }
